@@ -15,4 +15,4 @@ namespace: unifi
 resources:
   - namespace.yaml
   - unifi-mongo-credentials-secret.yaml
-  - unifi-mongodbcommunity.yaml
+  # - unifi-mongodbcommunity.yaml
