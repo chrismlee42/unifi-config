@@ -1,0 +1,34 @@
+apiVersion: mongodbcommunity.mongodb.com/v1
+kind: MongoDBCommunity
+metadata:
+  name: unifi
+spec:
+  members: 1 # Set to 1 for a single-node replica set
+  type: ReplicaSet # MCK recommends ReplicaSet even for single node
+  version: "8.2.5"
+  persistent: true
+  podSpec:
+    podTemplate:
+      spec:
+        containers:
+          - name: mongodb-enterprise-database
+            resources:
+              limits:
+                cpu: "1"
+                memory: 1G
+              requests:
+                cpu: "0.5"
+                memory: 512Mi
+  security:
+    authentication:
+      modes:
+        - SCRAM
+  users:
+    - db: admin
+      name: unifi
+      passwordSecretRef:
+        key: password
+        name: unifi-mongo-credentials
+      roles:
+        - role: readWrite
+          db: unifi
