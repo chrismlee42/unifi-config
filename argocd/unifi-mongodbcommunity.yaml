@@ -7,22 +7,21 @@ spec:
   type: ReplicaSet # MCK recommends ReplicaSet even for single node
   version: "8.2.5"
   # persistent: true
-  podSpec:
-    podTemplate:
-      spec:
-        containers:
-          - name: mongodb-enterprise-database
-            resources:
-              limits:
-                cpu: "1"
-                memory: 1G
-              requests:
-                cpu: "0.5"
-                memory: 512Mi
+  # podSpec:
+  #   podTemplate:
+  #     spec:
+  #       containers:
+  #         - name: mongodb-enterprise-database
+  #           resources:
+  #             limits:
+  #               cpu: "1"
+  #               memory: 1G
+  #             requests:
+  #               cpu: "0.5"
+  #               memory: 512Mi
   security:
     authentication:
-      modes:
-        - SCRAM
+      modes: ["SCRAM"]
   users:
     - db: admin
       name: unifi
@@ -30,5 +29,9 @@ spec:
         key: password
         name: unifi-mongo-credentials
       roles:
-        - role: readWrite
-          db: unifi
+        - db: admin
+          name: clusterAdmin
+        - db: admin
+          name: userAdminAnyDatabase
+        # - db: unifi
+        #   name: readWrite
