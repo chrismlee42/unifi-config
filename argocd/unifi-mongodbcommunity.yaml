@@ -6,7 +6,7 @@ spec:
   members: 1 # Set to 1 for a single-node replica set
   type: ReplicaSet # MCK recommends ReplicaSet even for single node
   version: "8.2.5"
-  persistent: true
+  # persistent: true
   podSpec:
     podTemplate:
       spec:
