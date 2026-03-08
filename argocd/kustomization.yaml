@@ -13,6 +13,8 @@ labels:
 namespace: unifi
 
 resources:
+  - mongo-data-persistentvolumeclaim.yaml
   - namespace.yaml
+  - unifi-data-persistentvolumeclaim.yaml
   - unifi-mongo-credentials-secret.yaml
   # - unifi-mongodbcommunity.yaml
