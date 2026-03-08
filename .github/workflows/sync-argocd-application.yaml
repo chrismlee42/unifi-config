@@ -9,7 +9,7 @@ on:
   workflow_dispatch:
 jobs:
   sync:
-    runs-on: chris-pc-openclaw
+    runs-on: chris-pc-unifi
     steps:
       - name: Install ArgoCD CLI
         run: |
