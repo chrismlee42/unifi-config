@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: mongo
-          image: bitnami/mongodb:8.2.5-1
+          image: public.ecr.aws/bitnami/mongodb:8.2.5
           imagePullPolicy: IfNotPresent
           securityContext:
             runAsUser: 0
@@ -49,7 +49,7 @@ spec:
               readOnly: true
       initContainers:
         - name: fix-permissions
-          image: bitnami/mongodb:8.2.5-1
+          image: public.ecr.aws/bitnami/mongodb:8.2.5
           securityContext:
             runAsUser: 0
             runAsGroup: 0
