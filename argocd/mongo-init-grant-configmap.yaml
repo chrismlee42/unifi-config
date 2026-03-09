@@ -8,7 +8,7 @@ data:
     echo "[INFO] Granting 'unifi' user dbOwner on 'unifi_stat'..."
     echo "[INFO] Running as user: $(id -u):$(id -g)"
     ls -la /bitnami/mongodb || true
-    mongo --username "${MONGODB_ROOT_USER}" --password "${MONGODB_ROOT_PASSWORD}" <<EOF
+    mongosh --username "${MONGODB_ROOT_USER}" --password "${MONGODB_ROOT_PASSWORD}" <<EOF
       use unifi
       db.grantRolesToUser("unifi", [
         { role: "dbOwner", db: "unifi_stat" }
