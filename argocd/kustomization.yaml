@@ -14,7 +14,9 @@ namespace: unifi
 
 resources:
   - mongo-data-persistentvolumeclaim.yaml
+  - mongo-init-grant-configmap.yaml
   - namespace.yaml
   - unifi-data-persistentvolumeclaim.yaml
+  - unifi-db-deployment.yaml
   - unifi-mongo-credentials-secret.yaml
   # - unifi-mongodbcommunity.yaml
