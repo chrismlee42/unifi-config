@@ -20,5 +20,6 @@ resources:
   - unifi-controller-service.yaml
   - unifi-data-persistentvolumeclaim.yaml
   - unifi-db-deployment.yaml
+  - unifi-db-service.yaml
   - unifi-mongo-credentials-secret.yaml
   # - unifi-mongodbcommunity.yaml
