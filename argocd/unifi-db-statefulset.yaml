@@ -1,0 +1,63 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: unifi-db
+spec:
+  serviceName: unifi-db
+  replicas: 1
+  selector:
+    matchLabels:
+      app: unifi-db
+  template:
+    metadata:
+      labels:
+        app: unifi-db
+    spec:
+      containers:
+        - name: mongo
+          image: docker.io/mongo:8.2.5
+          imagePullPolicy: IfNotPresent
+          securityContext:
+            runAsUser: 0
+            runAsGroup: 0
+            privileged: true
+          env:
+            - name: MONGO_AUTHSOURCE
+              value: admin
+            - name: MONGODB_DBNAME
+              value: unifi
+            - name: MONGODB_PASS
+              valueFrom:
+                secretKeyRef:
+                  name: unifi-mongo-credentials
+                  key: password
+            - name: MONGODB_ROOT_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: unifi-mongo-credentials
+                  key: password
+            - name: MONGODB_ROOT_USERNAME
+              value: root
+            - name: MONGODB_USER
+              value: unifi
+          volumeMounts:
+            - name: mongo-data
+              mountPath: /data/db
+            - name: mongo-init-scripts
+              mountPath: /docker-entrypoint-initdb.d
+              readOnly: true
+      volumes:
+        - name: mongo-init-scripts
+          configMap:
+            name: mongo-init-grant
+            items:
+              - key: init-mongo.sh
+                path: init-mongo.sh
+      volumeClaimTemplates:
+        - metadata:
+            name: mongo-data
+          spec:
+            accessModes: ["ReadWriteOnce"]
+            resources:
+              requests:
+                storage: 5Gi
