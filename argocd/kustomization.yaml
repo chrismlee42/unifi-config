@@ -13,7 +13,7 @@ labels:
 namespace: unifi
 
 resources:
-  - mongo-data-persistentvolumeclaim.yaml
+  # - mongo-data-persistentvolumeclaim.yaml
   - mongo-init-grant-configmap.yaml
   - namespace.yaml
   # - unifi-controller-deployment.yaml
