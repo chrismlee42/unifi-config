@@ -53,11 +53,11 @@ spec:
             items:
               - key: init-mongo.sh
                 path: init-mongo.sh
-      volumeClaimTemplates:
-        - metadata:
-            name: mongo-data
-          spec:
-            accessModes: ["ReadWriteOnce"]
-            resources:
-              requests:
-                storage: 5Gi
+  volumeClaimTemplates:
+    - metadata:
+        name: mongo-data
+      spec:
+        accessModes: ["ReadWriteOnce"]
+        resources:
+          requests:
+            storage: 5Gi
