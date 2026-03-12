@@ -13,14 +13,11 @@ labels:
 namespace: unifi
 
 resources:
-  # - mongo-data-persistentvolumeclaim.yaml
   - mongo-init-grant-configmap.yaml
   - namespace.yaml
-  # - unifi-controller-deployment.yaml
   - unifi-controller-service.yaml
-  - unifi-controller-statefulset.yaml
-  - unifi-data-persistentvolumeclaim.yaml
-  # - unifi-db-deployment.yaml
+  #- unifi-controller-statefulset.yaml
+  #- unifi-data-persistentvolumeclaim.yaml
   - unifi-db-service.yaml
   - unifi-db-statefulset.yaml
   - unifi-mongo-credentials-secret.yaml
