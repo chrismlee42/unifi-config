@@ -18,7 +18,7 @@ resources:
   - namespace.yaml
   # - unifi-controller-deployment.yaml
   - unifi-controller-service.yaml
-  #- unifi-controller-statefulset.yaml
+  - unifi-controller-statefulset.yaml
   - unifi-data-persistentvolumeclaim.yaml
   # - unifi-db-deployment.yaml
   - unifi-db-service.yaml
