@@ -18,10 +18,10 @@ resources:
   - namespace.yaml
   # - unifi-controller-deployment.yaml
   - unifi-controller-service.yaml
-  - unifi-controller-statefulset.yaml
+  #- unifi-controller-statefulset.yaml
   - unifi-data-persistentvolumeclaim.yaml
   # - unifi-db-deployment.yaml
   - unifi-db-service.yaml
-  - unifi-db-statefulset.yaml
+  #- unifi-db-statefulset.yaml
   - unifi-mongo-credentials-secret.yaml
   # - unifi-mongodbcommunity.yaml
