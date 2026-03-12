@@ -16,8 +16,8 @@ resources:
   - mongo-init-grant-configmap.yaml
   - namespace.yaml
   - unifi-controller-service.yaml
-  #- unifi-controller-statefulset.yaml
-  #- unifi-data-persistentvolumeclaim.yaml
+  - unifi-controller-statefulset.yaml
+  - unifi-data-persistentvolumeclaim.yaml
   - unifi-db-service.yaml
   - unifi-db-statefulset.yaml
   - unifi-mongo-credentials-secret.yaml
