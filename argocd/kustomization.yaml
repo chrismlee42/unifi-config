@@ -15,8 +15,9 @@ namespace: unifi
 resources:
   - mongo-init-grant-configmap.yaml
   - namespace.yaml
-  - unifi-controller-service.yaml
   - unifi-controller-statefulset.yaml
+  - unifi-controller-tcp-service.yaml
+  - unifi-controller-udp-service.yaml
   - unifi-data-persistentvolumeclaim.yaml
   - unifi-db-service.yaml
   - unifi-db-statefulset.yaml
