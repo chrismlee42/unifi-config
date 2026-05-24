@@ -24,21 +24,21 @@ spec:
           env:
             - name: MONGO_AUTHSOURCE
               value: admin
-            - name: MONGODB_DBNAME
+            - name: MONGO_DBNAME
               value: unifi
-            - name: MONGODB_PASS
+            - name: MONGO_PASS
               valueFrom:
                 secretKeyRef:
                   name: unifi-mongo-credentials
                   key: password
-            - name: MONGODB_ROOT_PASSWORD
+            - name: MONGO_ROOT_PASSWORD
               valueFrom:
                 secretKeyRef:
                   name: unifi-mongo-credentials
                   key: password
-            - name: MONGODB_ROOT_USERNAME
+            - name: MONGO_ROOT_USERNAME
               value: root
-            - name: MONGODB_USER
+            - name: MONGO_USER
               value: unifi
           volumeMounts:
             - name: mongo-data
